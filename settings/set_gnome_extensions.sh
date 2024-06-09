@@ -3,6 +3,8 @@ pipx install gnome-extensions-cli --system-site-packages
 # Turn off Fedora Watermark extension
 gnome-extensions disable background-logo@fedorahosted.org
 
+gum confirm "To install GNOME extensions, you will need to accept quite a few prompts. Are you ready to proceed?"
+
 # Install new extensions
 gext install allowlockedremotedesktop@kamens.us
 gext install app-hider@lynith.dev

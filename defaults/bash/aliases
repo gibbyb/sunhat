@@ -16,9 +16,9 @@ alias lta='lt -a'
 alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
 
 # Directories
-alias cd..='cd ..'
-alias cd...='cd ../..'
-alias cd....='cd ../../..'
+alias ..='cd ..'
+alias ...='cd ../..'
+alias ....='cd ../../..'
 
 # Tools
 alias n='nvim'

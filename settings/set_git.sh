@@ -7,8 +7,8 @@ git config --global pull.rebase true
 
 # Set git editor and user
 git config --global core.editor "nvim"
-git config --global user.name "gibbyb"
-git config --global user.email "gib@gibbyb.com"
+git config --global user.name $GH_USERNAME
+git config --global user.email $GH_EMAIL
 
 # Sign in to GitHub
 gh auth login

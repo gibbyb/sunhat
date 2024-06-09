@@ -1,11 +1,23 @@
+# Make Directory for all Dotfiles so you can sync them with Nextcloud.
 mkdir ~/Documents/Configs
+
+# Set up Bash Config and Source it ASAP.
+[ -f "~/.bashrc" ] && rm ~/.bashrc
+cp ~/.local/share/sunhat/configs/rc/bashrc ~/Documents/Configs/bashrc
+ln -s ~/Documents/Configs/bashrc ~/.bashrc
+source ~/.bashrc
+
+[ -f "~/.inputrc" ] && rm ~/.inputrc
+cp ~/.local/share/sunhat/configs/rc/inputrc ~/Documents/Configs/inputrc
+ln -s ~/Documents/Configs/inputrc ~/.inputrc
+
+# Copy all Dotfiles to the Configs Directory.
 cp -r ~/.local/share/sunhat/configs/dotfiles/. ~/Documents/Configs/
 
-espanso service stop
+# Remove old dotfiles if they exist & create symlinks to the new dotfiles.
 rm -rf ~/.config/espanso
 ln -s ~/Documents/Configs/espanso ~/.config/espanso
-espanso service start
-rm -rf ~/.config/espanso
+rm -rf ~/.config/forge
 ln -s ~/Documents/Configs/forge ~/.config/forge
 rm -rf ~/.config/kitty
 ln -s ~/Documents/Configs/kitty ~/.config/kitty
