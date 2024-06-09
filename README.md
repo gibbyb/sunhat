@@ -9,6 +9,12 @@
 wget -qO- https://github.com/gibbyb/sunhat/releases/download/1.0/install.sh | bash
 ```
 
+##### What is Sunhat?
+Suhat is my personal Fedora Config based on Omakub. If you use this to set up Fedora, you can expect to have just about every dependency and package you could dream of running. From local LLMs with ollama, image generation with Stable Diffusion, an awesome Neovim config written from scratch using Lazy.nvim (not to be mistaken with LazyVim), grub-btrfs & TimeShift for snapshots, & so much more. This is basically a repository of knowledge I have collected throughout the years of being a Fedora user, and could save a new user literally months of time.
+
+##### Usage:
+I would recommend looking through the sources, install, & settings directories & moving anything you are not interested in to the optional folder found in each directory. Most of the app installations are a single line, installing the app from dnf or flatpak, while some are more complex.
+
 ##### Themes:
 Themes in this repo for the most part have been removed, except for the easy stuff like changing the theme in VS Code. On Fedora, I would recommend Gradience Beta, which is installed by this app, for theming the GNOME shell. I will eventually add more themes for Kitty & Neovim, and I may even make some themes for the GNOME shell using Gradience.
 

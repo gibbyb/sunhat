@@ -1,0 +1,5 @@
+[Desktop Entry]
+Type=Application
+Name=io.github.Foldex.AdwSteamGtk
+Exec=flatpak run --command=adwaita-steam-gtk io.github.Foldex.AdwSteamGtk --check
+X-Flatpak=io.github.Foldex.AdwSteamGtk

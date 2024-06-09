@@ -1,0 +1,11 @@
+[Desktop Entry]
+Version=1.0
+Name=BlueBubbles
+Comment=BlueBubbles client for Linux
+Exec=/usr/bin/flatpak run --branch=stable --arch=x86_64 --command=bluebubbles app.bluebubbles.BlueBubbles
+Icon=app.bluebubbles.BlueBubbles
+Terminal=false
+Type=Application
+Categories=Network;InstantMessaging;Chat;
+StartupWMClass=bluebubbles
+X-Flatpak=app.bluebubbles.BlueBubbles
