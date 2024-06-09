@@ -111,3 +111,4 @@ autoconf
 bison
 ImageMagick
 sqlite3
+gperftools-libs

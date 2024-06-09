@@ -1,0 +1,14 @@
+[Unit]
+Description=Stable Diffusion Web UI Service
+StartLimitIntervalSec=500
+StartLimitBurst=5
+
+[Service]
+WorkingDirectory=/home/gib/.local/share/sunhat/packages/stable-diffusion-webui
+ExecStart=/home/gib/.local/share/sunhat/packages/stable-diffusion-webui/webui.sh
+Restart=on-failure
+RestartSec=30s
+
+[Install]
+WantedBy=default.target
+
