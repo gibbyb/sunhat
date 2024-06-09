@@ -4,7 +4,12 @@
 
 ### Note: This is my personal config. I wouldn't necessarily recommend using it.
 
-#### To Do:
+#### Install:
+```bash
+wget -qO- https://github.com/gibbyb/sunhat/releases/download/1.0/install.sh | bash
+```
+
+##### To Do:
 
 - [ ] Add a way to change the font & theme of kitty using the script
 - [ ] Add a themes for Neovim that are not using LazyVim
