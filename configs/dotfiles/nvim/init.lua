@@ -1,0 +1,1 @@
+require("gib_nvim")

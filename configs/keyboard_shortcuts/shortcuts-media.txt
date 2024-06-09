@@ -1,0 +1,28 @@
+[/]
+calculator=['<Super>c']
+control-center=['<Super>i']
+custom-keybindings=['/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/', '/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/']
+email=['<Super>e']
+help=@as []
+home=['<Super>f']
+magnifier=@as []
+magnifier-zoom-in=@as []
+magnifier-zoom-out=@as []
+screenreader=@as []
+screensaver=['<Super>BackSpace']
+www=['<Super>w']
+
+[custom-keybindings/custom0]
+binding='<Super>t'
+command='kitty'
+name='Kitty'
+
+[custom-keybindings/custom1]
+binding='<Super>n'
+command='kitty nvim .'
+name='Neovim'
+
+[custom-keybindings/custom2]
+binding='<Shift><Control>Escape'
+command='flatpak run io.missioncenter.MissionCenter'
+name='System Monitor'

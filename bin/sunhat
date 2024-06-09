@@ -1,0 +1,11 @@
+#!/bin/bash
+
+source $SUNHAT_PATH/bin/ascii.sh
+
+if [ $# -eq 0 ]; then
+	SUB=$(gum choose "Theme" "Font" "Install" "Update" --height 8 --header "" | tr '[:upper:]' '[:lower:]')
+else
+	SUB=$1
+fi
+
+[ -n "$SUB" ] && source $SUNHAT_PATH/bin/sunhat-$SUB

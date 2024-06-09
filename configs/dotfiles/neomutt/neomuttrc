@@ -1,0 +1,14 @@
+set imap_user = 'brownagabriel'
+set imap_pass = 'zjtp-wrkd-alsn-eety'
+set folder = 'imaps://imap.mail.me.com'
+set spoolfile = '+INBOX'
+
+set smtp_url = 'smtps://brownagabriel@icloud.com:zjtp-wrkd-alsn-eety@smtp.mail.me.com'
+
+set alias_file = '/home/gib/.mutt/aliases'
+source /home/gib/.mutt/aliases
+
+set from = 'gib@gibbyb.com'
+set realname = 'Gabriel Brown'
+set use_from = yes
+set reply_to = 'gib@gibbyb.com'

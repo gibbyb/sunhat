@@ -1,0 +1,2 @@
+INSTALLER=$(gum file $SUNHAT_PATH/install)
+[ -n "$INSTALLER" ] && gum confirm "Run installer?" && source $INSTALLER

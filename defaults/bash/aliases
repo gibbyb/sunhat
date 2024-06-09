@@ -1,3 +1,13 @@
+# Aliases I like
+alias update="sudo dnf update -y && flatpak update -y"
+alias install="sudo dnf install -y"
+alias letscode="cd ~/Documents/Code && ranger ."
+alias gtext="gnome-text-editor"
+alias :q="exit"
+alias :wq="exit"
+alias cdcode="cd ~/Documents/Code"
+alias rnr="ranger"
+
 # File system
 alias ls='eza -lh --group-directories-first --icons'
 alias lsa='ls -a'
@@ -6,16 +16,13 @@ alias lta='lt -a'
 alias ff="fzf --preview 'batcat --style=numbers --color=always {}'"
 
 # Directories
-alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
+alias cd..='cd ..'
+alias cd...='cd ../..'
+alias cd....='cd ../../..'
 
 # Tools
 alias n='nvim'
 alias g='git'
-alias d='docker'
-alias r='rails'
-alias bat='batcat'
 
 # Git
 alias gcm='git commit -m'

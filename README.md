@@ -1,17 +1,12 @@
-# Omakub fork to Support Fedora & to eventually replace my Fedora Setup Repo
+# Sunhat
 
-*This repo is currently identical to Omakum, so it obviously does not support Fedora yet*
+## A Fork of Omakub, turned into a Fedora Config
 
-## Omakub
+### Note: This is my personal config. I wouldn't necessarily recommend using it.
 
-Turn a fresh Ubuntu installation into a fully-configured, beautiful, and modern web development system by running a single command. That's the one-line pitch for Omakub. No need to write bespoke configs for every essential tool just to get started or to be up on all the latest command-line tools. Omakub is an opinionated take on what Linux can be at its best.
+#### To Do:
 
-Watch the introduction video and read more at [omakub.org](https://omakub.org).
-
-### Contributing to the documentation
-
-Please help us improve Omakub's documentation on the [the basecamp/omakub-site repository](https://github.com/basecamp/omakub-site).
-
-### License
-
-Omakub is released under the [MIT License](https://opensource.org/licenses/MIT).
+- [ ] Add a way to change the font of kitty using the script
+- [ ] Add a themes for Neovim that are not using LazyVim
+- [ ] Configure GNOME extensions with cli tool.
+- [ ] Find a consistent way to download applications not in repos.

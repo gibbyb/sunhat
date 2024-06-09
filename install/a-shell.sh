@@ -1,6 +1,6 @@
 [ -f "~/.bashrc" ] && mv ~/.bashrc ~/.bashrc.bak
-cp ~/.local/share/omakub/configs/bashrc ~/.bashrc
+cp ~/.local/share/sunhat/configs/rc/bashrc ~/.bashrc
 source ~/.bashrc
 
 [ -f "~/.inputrc" ] && mv ~/.inputrc ~/.inputrc.bak
-cp ~/.local/share/omakub/configs/inputrc ~/.inputrc
+cp ~/.local/share/sunhat/configs/rc/inputrc ~/.inputrc

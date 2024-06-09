@@ -1,0 +1,64 @@
+{
+    "overrides": [
+        {
+            "wmClass": "jetbrains-toolbox",
+            "mode": "float"
+        },
+        {
+            "wmClass": "Com.github.amezin.ddterm",
+            "mode": "float"
+        },
+        {
+            "wmClass": "Com.github.donadigo.eddy",
+            "mode": "float"
+        },
+        {
+            "wmClass": "Conky",
+            "mode": "float"
+        },
+        {
+            "wmClass": "Gnome-initial-setup",
+            "mode": "float"
+        },
+        {
+            "wmClass": "org.gnome.Calculator",
+            "mode": "float"
+        },
+        {
+            "wmClass": "gnome-terminal-preferences",
+            "mode": "float"
+        },
+        {
+            "wmClass": "Guake",
+            "mode": "float"
+        },
+        {
+            "wmClass": "zoom",
+            "mode": "float"
+        },
+        {
+            "wmClass": "mpv",
+            "mode": "float"
+        },
+        {
+            "wmClass": "Bitwarden",
+            "mode": "float"
+        },
+        {
+            "wmClass": "Hidamari",
+            "mode": "float"
+        },
+        {
+            "wmClass": "com.mattjakeman.ExtensionManager",
+            "mode": "float"
+        },
+        {
+            "wmClass": "Cider",
+            "mode": "float"
+        },
+        {
+            "wmClass": "Ulauncher",
+            "mode": "float"
+        }
+    ]
+}

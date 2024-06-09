@@ -1,10 +1,20 @@
 mkdir -p ~/.local/share/fonts
 
+# MS Fonts
+sudo rpm -i https://downloads.sourceforge.net/project/mscorefonts2/rpms/msttcore-fonts-installer-2.6-1.noarch.rpm
+
+# Nerd Fonts
 cd ~/Downloads
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/CascadiaMono.zip
 unzip CascadiaMono.zip -d CascadiaFont
 cp CascadiaFont/*.ttf ~/.local/share/fonts
 rm -rf CascadiaMono.zip CascadiaFont
+
+cd ~/Downloads
+wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/VictorMono.zip
+unzip VictorMono.zip -d VictorFont
+cp VictorFont/*.ttf ~/.local/share/fonts
+rm -rf VictorMono.zip VictorFont
 
 wget https://github.com/ryanoasis/nerd-fonts/releases/latest/download/FiraMono.zip
 unzip FiraMono.zip -d FiraMono
@@ -29,5 +39,5 @@ rm -rf master.zip iaFonts
 fc-cache
 cd -
 
-# Set Cascadia Mono as the default
-gsettings set org.gnome.desktop.interface monospace-font-name 'CaskaydiaMono Nerd Font 10'
+# Set Victor Mono as the default
+gsettings set org.gnome.desktop.interface monospace-font-name 'VictorMono Nerd Font 10'

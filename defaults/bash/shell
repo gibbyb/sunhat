@@ -4,11 +4,10 @@ HISTCONTROL=ignoreboth
 HISTSIZE=32768
 HISTFILESIZE="${HISTSIZE}"
 
-# Autocompletion
-source /usr/share/bash-completion/bash_completion
+export SUNHAT_PATH="/home/$USER/.local/share/sunhat"
+export BUN_INSTALL="$HOME/.bun"
 
 # Set complete path
-export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/omakub/bin:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/snap/bin"
+export PATH="./bin:$HOME/.local/bin:$HOME/$SUNHAT_PATH/bin:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$BUN_INSTALL/bin"
 set +h
 
-export OMAKUB_PATH="/home/$USER/.local/share/omakub"
