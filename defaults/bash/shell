@@ -12,6 +12,6 @@ export SUNHAT_PATH="/home/$USER/.local/share/sunhat"
 export BUN_INSTALL="$HOME/.bun"
 
 # Set complete path
-export PATH="./bin:$HOME/.local/bin:$HOME/$SUNHAT_PATH/bin:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$BUN_INSTALL/bin"
+export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/sunhat/bin:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$BUN_INSTALL/bin:$HOME/.cargo/bin"
 set +h
 

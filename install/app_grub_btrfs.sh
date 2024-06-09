@@ -1,5 +1,6 @@
+sudo dnf install -y btrfs-progs gawk inotify-tools
 git clone https://github.com/Antynea/grub-btrfs ~/.local/share/sunhat/packages/grub-btrfs/
-mv ~/.local/share/sunhat/configs/grub-btrfs/config ~/.local/share/sunhat/grub-btrfs/config
+cp ~/.local/share/sunhat/configs/grub-btrfs/config ~/.local/share/sunhat/packages/grub-btrfs/config
 cd ~/.local/share/sunhat/packages/grub-btrfs
 sudo make install
 sudo grub2-mkconfig -o /etc/grub2-efi.cfg
