@@ -4,6 +4,10 @@ HISTCONTROL=ignoreboth
 HISTSIZE=32768
 HISTFILESIZE="${HISTSIZE}"
 
+# Editor used by CLI
+export EDITOR="nvim"
+export SUDO_EDITOR="nvim"
+
 export SUNHAT_PATH="/home/$USER/.local/share/sunhat"
 export BUN_INSTALL="$HOME/.bun"
 

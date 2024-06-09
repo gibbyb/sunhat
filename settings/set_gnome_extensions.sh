@@ -23,8 +23,8 @@ gext install Vitals@CoreCoding.com
 gext install weatheroclock@CleoMenezesJr.github.io
 gext install wifiqrcode@glerro.pm.me
 # Install Hanabi
-git clone https://github.com/jeffshee/gnome-ext-hanabi.git ../packages/hanabi
-cd ../packages/hanabi
+git clone https://github.com/jeffshee/gnome-ext-hanabi.git ~/.local/share/sunhat/packages/hanabi
+cd ~/.local/share/sunhat/packages/hanabi
 ./run.sh install
 
 # Compile gsettings schemas in order to be able to set them
