@@ -1,4 +1,4 @@
-# Sunhat
+# Sunhat 👒
 
 ## A Fork of Omakub, turned into a Fedora Config
 
