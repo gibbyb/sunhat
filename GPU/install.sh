@@ -1,7 +1,7 @@
 # Install Utility for AMD GPUs if needed
 read -p "Would you like to install LACT, an AMD GPU Utility? (y/N) " amd_gpu
 if [ "$amd_gpu" == "y" ]; then
-  sudo dnf install -y https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5.4/lact-0.5.4-0.x86_64.fedora-40.rpm
+  sudo dnf install -y $LACT_LINK
   sudo systemctl enable --now lactd
 fi
 read -p "Would you like to install the proprietary NVIDIA Drivers? (y/N) " nvidia_gpu

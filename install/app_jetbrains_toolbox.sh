@@ -1,1 +1,1 @@
-xdg-open https://www.jetbrains.com/toolbox-app/download/download-thanks.html?platform=linux
+xdg-open $JETBRAINS_TOOLBOX_LINK > /dev/null 2>&1
