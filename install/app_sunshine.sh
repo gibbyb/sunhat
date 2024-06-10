@@ -1,4 +1,4 @@
-sudo dnf copr enable matte-schwartz/sunshine
+sudo dnf copr enable matte-schwartz/sunshine -y
 sudo dnf update -y --refresh
 sudo dnf install -y sunshine
 echo 'KERNEL=="uinput", SUBSYSTEM=="misc", OPTIONS+="static_node=uinput", TAG+="uaccess"' | \

@@ -51,7 +51,6 @@ mesa-libOpenCL
 apr
 apr-util
 composer
-xwaylandvideobridge
 alsa-plugins-pulseaudio
 libxcrypt-compat
 xcb-util-renderutil

@@ -7,6 +7,7 @@ alias :q="exit"
 alias :wq="exit"
 alias cdcode="cd ~/Documents/Code"
 alias rnr="ranger"
+alias jump="wine /home/gib/.wine/drive_c/Program\ Files/Phase\ Five\ Systems/Jump\ Desktop/JumpClient.exe"
 
 # File system
 alias ls='eza -lh --group-directories-first --icons'
