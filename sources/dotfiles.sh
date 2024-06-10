@@ -31,3 +31,8 @@ rm -rf ~/.config/powerline
 ln -s ~/Documents/Configs/powerline ~/.config/powerline
 rm -rf ~/.config/ranger
 ln -s ~/Documents/Configs/ranger ~/.config/ranger
+
+# Copy any additional files such as Wallpapers,
+# Icons, .desktop files, & Nautilus Extensions
+cp -r ~/.local/share/sunhat/config/copy/home/. ~/
+cp -r ~/.local/share/sunhat/config/copy/root/. /

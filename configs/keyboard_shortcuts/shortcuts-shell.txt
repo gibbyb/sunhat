@@ -1,6 +1,0 @@
-[/]
-focus-active-notification=@as []
-open-application-menu=['<Alt>grave']
-show-screenshot-ui=['Print']
-toggle-message-tray=['<Super>v']
-toggle-overview=@as []
