@@ -4,7 +4,6 @@ wget
 python3
 python3-pip
 pipx
-pipenv
 python3-devel
 python3-virtualenv
 python3-gobject
@@ -35,7 +34,6 @@ mokutil
 openssl
 maven
 cargo
-dotnet-sdk-7.0
 dotnet-sdk-8.0
 wine
 wine-mono
