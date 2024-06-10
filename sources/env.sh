@@ -8,3 +8,4 @@ export LACT_LINK="https://github.com/ilya-zlobintsev/LACT/releases/download/v0.5
 export JDK_LINK="https://download.oracle.com/java/22/latest/jdk-22_linux-aarch64_bin.rpm"
 export DESKTOP_BACKGROUND="file:///home/gib/Pictures/Wallpapers/gloomyroadcatbg.png"
 export HOME_ASSISTANT_URL="https://home.gibbyb.com"
+export JUMP_DESKTOP_LINK="https://jumpdesktop.com/downloads/jdwin"
