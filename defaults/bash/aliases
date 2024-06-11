@@ -8,7 +8,6 @@ alias :wq="exit"
 alias cdcode="cd ~/Documents/Code"
 alias rnr="ranger"
 alias startsunshine="systemctl --user restart sunshine.service"
-alias jump="wine /home/gib/.wine/drive_c/Program\ Files/Phase\ Five\ Systems/Jump\ Desktop/JumpClient.exe & disown"
 alias n.="nvim ."
 
 # File system

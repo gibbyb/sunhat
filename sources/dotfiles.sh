@@ -2,14 +2,10 @@
 mkdir ~/Documents/Configs
 
 # Set up Bash Config and Source it ASAP.
-[ -f "~/.bashrc" ] && rm ~/.bashrc
+[ -f "$HOME/.bashrc" ] && rm ~/.bashrc
 cp ~/.local/share/sunhat/configs/rc/bashrc ~/Documents/Configs/bashrc
 ln -s ~/Documents/Configs/bashrc ~/.bashrc
 source ~/.bashrc
-
-[ -f "~/.inputrc" ] && rm ~/.inputrc
-cp ~/.local/share/sunhat/configs/rc/inputrc ~/Documents/Configs/inputrc
-ln -s ~/Documents/Configs/inputrc ~/.inputrc
 
 # Copy all Dotfiles to the Configs Directory.
 cp -r ~/.local/share/sunhat/configs/dotfiles/. ~/Documents/Configs/

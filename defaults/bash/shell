@@ -1,3 +1,8 @@
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
+
 # History control
 shopt -s histappend
 HISTCONTROL=ignoreboth
@@ -8,10 +13,14 @@ HISTFILESIZE="${HISTSIZE}"
 export EDITOR="nvim"
 export SUDO_EDITOR="nvim"
 
-export SUNHAT_PATH="/home/$USER/.local/share/sunhat"
+# Define Paths
+export SUNHAT_PATH="$HOME/.local/share/sunhat"
+export CARGO_PATH="$HOME/.cargo"
 export BUN_INSTALL="$HOME/.bun"
+export PYENV_ROOT="$HOME/.pyenv"
+export PNPM_HOME="$HOME/.local/share/pnpm"
 
 # Set complete path
-export PATH="./bin:$HOME/.local/bin:$HOME/.local/share/sunhat/bin:$HOME/.rbenv/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$BUN_INSTALL/bin:$HOME/.cargo/bin"
+export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$SUNHAT_PATH/bin:$BUN_INSTALL/bin:$CARGO_PATH/bin:$PNPM_HOME:$PYENV_ROOT/bin:$HOME/.rbenv/bin"
 set +h
 
