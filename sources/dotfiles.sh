@@ -2,7 +2,7 @@
 mkdir ~/Documents/Configs
 
 # Set up Bash Config and Source it ASAP.
-[ -f "$HOME/.bashrc" ] && rm ~/.bashrc
+[ -f "$HOME/.bashrc" ] && mv ~/.bashrc ~/.bashrc.bak
 cp ~/.local/share/sunhat/configs/rc/bashrc ~/Documents/Configs/bashrc
 ln -s ~/Documents/Configs/bashrc ~/.bashrc
 source ~/.bashrc
