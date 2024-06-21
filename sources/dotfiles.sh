@@ -30,5 +30,5 @@ ln -s ~/Documents/Configs/ranger ~/.config/ranger
 
 # Copy any additional files such as Wallpapers,
 # Icons, .desktop files, & Nautilus Extensions
-cp -r ~/.local/share/sunhat/config/copy/home/. ~/
-cp -r ~/.local/share/sunhat/config/copy/root/. /
+cp -r ~/.local/share/sunhat/configs/copy/home/. ~/
+sudo cp -r ~/.local/share/sunhat/configs/copy/root/. /
