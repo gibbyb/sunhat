@@ -38,6 +38,7 @@ rm -rf master.zip iaFonts
 
 fc-cache
 cd -
+cd ~/.local/share/sunhat
 
 # Set Victor Mono as the default
 gsettings set org.gnome.desktop.interface monospace-font-name 'VictorMono Nerd Font 10'

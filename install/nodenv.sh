@@ -13,4 +13,5 @@ if ! command -v nodenv &>/dev/null; then
 	nodenv install $DEFAULT_NODE_VERSION
 	nodenv global $DEFAULT_NODE_VERSION
 	sudo ln -vs $(nodenv root)/shims/* /usr/local/bin/
+  cd ~/.local/share/sunhat
 fi
