@@ -6,9 +6,12 @@ alias gtext="gnome-text-editor"
 alias :q="exit"
 alias :wq="exit"
 alias cdcode="cd ~/Documents/Code"
+alias cdsun="cd ~/.local/share/sunhat"
 alias rnr="ranger"
 alias startsunshine="systemctl --user restart sunshine.service"
 alias n.="nvim ."
+alias sourcerc="source ~/.bashrc"
+alias john="~/.local/share/sunhat/packages/JohnTheRipper/run/john"
 
 # File system
 alias ls='eza -lh --group-directories-first --icons'

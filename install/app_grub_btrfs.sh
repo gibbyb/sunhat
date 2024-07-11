@@ -3,6 +3,7 @@ git clone https://github.com/Antynea/grub-btrfs ~/.local/share/sunhat/packages/g
 cp ~/.local/share/sunhat/configs/grub-btrfs/config ~/.local/share/sunhat/packages/grub-btrfs/config
 cd ~/.local/share/sunhat/packages/grub-btrfs
 sudo make install
+cd ~/.local/share/sunhat
 sudo grub2-mkconfig -o /etc/grub2-efi.cfg
 sudo systemctl enable --now grub-btrfsd
 echo -e "\nIn order to make GRUB-BTRFS work with Timeshift,"

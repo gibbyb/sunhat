@@ -11,3 +11,4 @@ espanso start
 espanso install html-utils-package
 espanso install markdown-shortcuts
 espanso install misspell-en
+cd ~/.local/share/sunhat || exit
