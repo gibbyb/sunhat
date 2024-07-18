@@ -26,7 +26,7 @@ gext install weatheroclock@CleoMenezesJr.github.io
 gext install wifiqrcode@glerro.pm.me
 # Install Hanabi
 git clone https://github.com/jeffshee/gnome-ext-hanabi.git ~/.local/share/sunhat/packages/hanabi
-cd ~/.local/share/sunhat/packages/hanabi || exit
+cd ~/.local/share/sunhat/packages/hanabi
 ./run.sh install > /dev/null
 echo "Hanabi installed"
 
