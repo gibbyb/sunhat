@@ -24,3 +24,5 @@ export PNPM_HOME="$HOME/.local/share/pnpm"
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$SUNHAT_PATH/bin:$BUN_INSTALL/bin:$CARGO_PATH/bin:$PNPM_HOME:$PYENV_ROOT/bin:$HOME/.rbenv/bin"
 set +h
 
+# Zoxide
+eval "$(zoxide init bash)"
