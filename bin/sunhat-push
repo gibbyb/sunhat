@@ -1,0 +1,7 @@
+cd $SUNHAT_PATH
+git pull
+cp -r ~/Documents/Configs/. $SUNHAT_PATH/configs/dotfiles/
+git add -A
+git commit -m "Update Configs"
+git push
+cd -

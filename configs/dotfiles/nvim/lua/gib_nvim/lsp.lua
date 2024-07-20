@@ -56,6 +56,7 @@ local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
   sources = {
+    --{name = 'supermaven'},
     {name = 'path'},
     {name = 'nvim_lsp'},
     {name = 'nvim_lua'},

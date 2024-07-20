@@ -65,7 +65,18 @@ require("lazy").setup({
     {'saadparwaiz1/cmp_luasnip'},
     {'rafamadriz/friendly-snippets'},
     {
-        'github/copilot.vim'
+        --'github/copilot.vim'
+        'supermaven-inc/supermaven-nvim',
+        config = function()
+          require('supermaven-nvim').setup({
+            keymaps = {
+              accept_suggestion = '<Tab>',
+              clear_suggestion = '<C-]>',
+              accept_word = '<C-.>',
+            },
+            disable_inline_completion = false, -- for cmp
+          })
+        end,
     },
     {
         'laytan/cloak.nvim'
@@ -115,8 +126,5 @@ require("lazy").setup({
             insert_at_start = true,
         },
         version = '^1.0.0',
-    },
-    {
-      'akinsho/toggleterm.nvim', version = "*", config = true
     },
 })

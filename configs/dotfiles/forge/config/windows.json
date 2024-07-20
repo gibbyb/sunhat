@@ -59,6 +59,10 @@
         {
             "wmClass": "Ulauncher",
             "mode": "float"
+        },
+        {
+            "wmClass": "com.nextcloud.desktopclient.nextcloud",
+            "mode": "float"
         }
     ]
 }
