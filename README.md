@@ -8,6 +8,10 @@
 ```bash
 wget -qO- https://github.com/gibbyb/sunhat/releases/download/1.0/install.sh | bash
 ```
+##### Mirror:
+```bash
+wget -qO- https://git.gibbyb.com/gib/sunhat/releases/download/1.0/install.sh | bash
+```
 
 ##### To Do:
 
