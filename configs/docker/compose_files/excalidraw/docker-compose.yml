@@ -1,0 +1,20 @@
+version: '3'
+services:
+  excalidraw:
+    image: excalidraw/excalidraw:latest
+    container_name: excalidraw
+    hostname: excalidraw.gib
+    domainname: draw.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.30
+    ports:
+      - 80:80
+    env_file:
+      - ../user_variables.env
+    tty: true
+    restart: unless-stopped
+
+networks:
+  ${NETWORK_NAME}:
+    external: true

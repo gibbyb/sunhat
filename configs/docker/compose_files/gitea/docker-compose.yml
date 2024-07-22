@@ -1,0 +1,58 @@
+version: "2"
+services: 
+  gitea: 
+    image: gitea/gitea:latest
+    container_name: gitea
+    hostname: gitea.gib
+    domainname: git.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.10
+    ports:
+      - "2222:2222"
+      - "3000:3000"
+    env_file:
+      - ../user_variables.env
+    environment:
+      - USER_UID=${PUID}
+      - USER_GID=${PGID}
+      - GITEA__database__DB_TYPE=${GITEA_DB_TYPE}
+      - GITEA__database__HOST=${GITEA_DB_HOST}
+      - GITEA__database__NAME=${GITEA_DB_NAME} 
+      - GITEA__database__USER=${GITEA_DB_USER}
+      - GITEA__database__PASSWD=${GITEA_DB_PW}
+    links:
+      - postgres
+    depends_on:
+      - postgres
+    volumes: 
+      - ${VOLUME_DIR}/Gitea/Data:/data
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+    tty: true
+    restart: unless-stopped
+
+  postgres:
+    image: postgres:latest
+    container_name: postgres
+    hostname: postgres.gib
+    domainname: pg.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.24
+    ports:
+      - "5432:5432"
+    env_file:
+      - ../user_variables.env
+    environment:
+      - POSTGRES_USER=${GITEA_DB_USER}
+      - POSTGRES_PASSWORD=${GITEA_DB_PW}
+      - POSTGRES_DB=${GITEA_DB_NAME}
+    volumes: 
+      - ${VOLUME_DIR}/Postgres/Data:/var/lib/postgresql/data
+      - /etc/localtime:/etc/localtime:ro
+      - /etc/timezone:/etc/timezone:ro
+
+networks:
+  ${NETWORK_NAME}:
+    external: true

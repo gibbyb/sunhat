@@ -1,0 +1,22 @@
+version: "3"
+services: 
+  homeassistant: 
+    image: homeassistant/home-assistant:latest
+    container_name: homeassistant
+    hostname: homeassistant
+    domainname: home.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.7
+    ports:
+      - "8123:8123"
+    env_file:
+      - ../user_variables.env
+    volumes: 
+      - ${VOLUME_DIR}/HomeAssistant/Config:/config
+      - /etc/localtime:/etc/localtime:ro
+    tty: true
+    restart: unless-stopped
+networks:
+  ${NETWORK_NAME}:
+    external: true  

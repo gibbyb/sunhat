@@ -1,0 +1,22 @@
+version: '3'
+services:
+  image_hoster:
+    image: node_indexjs:latest
+    container_name: image_hoster
+    hostname: image_hoster.gib
+    domainname: img.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.28
+    ports:
+      - 3000:3000
+    env_file:
+      - ../../user_variables.env
+    volumes:
+      - ${DAS_DIR}/Web/image_hoster:/home/node/app
+    tty: true
+    restart: unless-stopped
+
+networks:
+  ${NETWORK_NAME}:
+    external: true

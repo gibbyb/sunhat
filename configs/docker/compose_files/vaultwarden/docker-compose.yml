@@ -1,0 +1,30 @@
+version: "3"
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    hostname: vaultwarden
+    domainname: vault.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.8
+    ports:
+      - "80:80"
+      - "3012:3012"
+    env_file:
+      - ../user_variables.env
+    environment:
+      - DOMAIN=https://vault.${DOMAIN}
+      - LOGIN_RATELIMIT_MAX_BURST=10
+      - LOGIN_RATELIMIT_SECONDS=60
+      - WEB_VAULT_ENABLED=false
+      - SIGNUPS_ALLOWED=false
+      - WEBSOCKET_ENABLED=true
+    volumes:
+      - ${VOLUME_DIR}/Vaultwarden/data:/data
+      - /etc/localtime:/etc/localtime:ro
+    tty: true
+    restart: unless-stopped
+networks:
+  ${NETWORK_NAME}:
+    external: true

@@ -1,0 +1,20 @@
+version: '3'
+services:
+  php:
+    image: php:7.4-fpm
+    container_name: php_mysql
+    hostname: php_mysql.gib
+    domainname: php_mysql.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.26
+    env_file:
+      - ../user_variables.env
+    volumes:
+      - ${DAS_DIR}/Web:/var/www/html
+    tty: true
+    restart: unless-stopped
+
+networks:
+  ${NETWORK_NAME}:
+    external: true

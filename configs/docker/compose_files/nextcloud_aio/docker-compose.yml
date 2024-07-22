@@ -1,0 +1,39 @@
+services:
+  nextcloud-aio-mastercontainer:
+    image: nextcloud/all-in-one:latest
+    init: true
+    restart: unless-stopped
+    tty: true
+    container_name: nextcloud-aio-mastercontainer
+    hostname: nextcloud-aio-mastercontainer
+    domainname: ncmaster.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.9
+    volumes:
+      - ${VOLUME_DIR}/NC_AIO/Master_Container:/mnt/docker-aio-config
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    ports:
+      - 8080:8080
+    env_file:
+      - ../user_variables.env
+    environment:
+      - APACHE_PORT=11000
+      - SKIP_DOMAIN_VALIDATION=true
+      - BORG_RETENTION_POLICY=--keep-within=7d --keep-weekly=4 --keep-monthly=2
+      - NEXTCLOUD_UPLOAD_LIMIT=${NC_UPLOAD_LIMIT}
+      - NEXTCLOUD_MAX_TIME=${NC_MAX_TIME}
+      - NEXTCLOUD_MEMORY_LIMIT=${NC_MEMORY_LIMIT}
+      # - COLLABORA_SECCOMP_DISABLED=true
+      - NEXTCLOUD_STARTUP_APPS=deck twofactor_totp tasks calendar contacts notes
+      - NEXTCLOUD_ENABLE_DRI_DEVICE=true
+      - NEXTCLOUD_ADDITIONAL_APKS=imagemagick
+      - NEXTCLOUD_ADDITIONAL_PHP_EXTENSIONS=imagick
+      - TALK_PORT=3478
+      # - NEXTCLOUD_MOUNT=/mnt/
+      - NEXTCLOUD_DATADIR=${NC_DATADIR}
+      # - APACHE_IP_BINDING=127.0.0.1
+    security_opt: ["label:disable"] # Need this line when using SELinux
+networks:
+  ${NETWORK_NAME}:
+    external: true

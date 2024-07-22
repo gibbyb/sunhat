@@ -1,0 +1,28 @@
+version: '3.7'
+services:
+  openwebui:
+    image: ghcr.io/open-webui/open-webui:main
+    container_name: openwebui
+    hostname: openwebui.gib
+    domainname: ai.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.12
+    ports:
+      - ${OPENWEBUI_PORT}:${OPENWEBUI_PORT}
+    env_file:
+      - ../user_variables.env
+    environment:
+      - OLLAMA_BASE_URL=${OLLAMA_BASE_URL}
+      - PORT=${OPENWEBUI_PORT}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - AUTOMATIC1111_BASE_URL=${AUTOMATIC1111_BASE_URL}
+      - USE_OLLAMA_DOCKER=${USE_OLLAMA_DOCKER}
+      - USE_CUDA_DOCKER=${USE_CUDA_DOCKER}
+    volumes:
+      - ${VOLUME_DIR}/OpenWebUI/Data:/app/backend/data
+    tty: true
+    restart: unless-stopped
+networks:
+  ${NETWORK_NAME}:
+    external: true

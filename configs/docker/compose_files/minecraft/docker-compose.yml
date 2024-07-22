@@ -1,0 +1,22 @@
+version: '3'
+services:
+  minecraft_server:
+    image: itzg/minecraft-server:latest
+    container_name: minecraft_server
+    hostname: minecraft_server.gib
+    domainname: mc.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.33
+    ports:
+      - 25565:25565
+    env_file:
+      - ../user_variables.env
+    volumes:
+      - ${VOLUME_DIR}/Minecraft_Server/Data:/data
+    tty: true
+    restart: unless-stopped
+
+networks:
+  ${NETWORK_NAME}:
+    external: true

@@ -1,0 +1,27 @@
+version: "2.1"
+services:
+  whisperasr:
+    image: onerahmet/openai-whisper-asr-webservice:latest-gpu
+    container_name: whisperasr
+    hostname: whisperasr.gib
+    domainname: whisperasr.gibbyb.com
+    networks:
+      Gib_Home: 
+        ipv4_address: 192.168.0.36
+    ports:
+      - 9000:9000
+    environment:
+      - ASR_MODEL=small
+      - ASR_ENGINE=faster_whisper
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    tty: true
+    restart: unless-stopped
+networks:
+  Gib_Home:
+    external: true

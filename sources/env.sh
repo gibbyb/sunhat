@@ -1,3 +1,4 @@
+export TOOLS=$(cat ~/.local/share/sunhat/sources/install/tools | tr "\n" " " | sed 's/ //g')
 export GH_USERNAME="gibbyb"
 export GH_EMAIL="gib@gibbyb.com"
 export GH_EDITOR="nvim"

@@ -1,2 +1,2 @@
-tools=$(cat ~/.local/share/sunhat/sources/install/tools | tr "\n" " ")
+source ~/.local/share/sunhat/sources/env.sh
 sudo dnf install -y $tools

@@ -1,0 +1,36 @@
+version: "2.1"
+services:
+  wireguard:
+    image: lscr.io/linuxserver/wireguard:latest
+    container_name: wireguard
+    hostname: wireguard
+    domainname: wg.${DOMAIN}
+    networks:
+      ${NETWORK_NAME} : 
+        ipv4_address: ${IP_PREFIX}.5
+    ports:
+      - 51820:51820/udp
+    env_file:
+      - ../user_variables.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+      - SERVERPORT=51820
+      - PEERS=${WG_PEERS}
+      - PEERDNS=${IP_PREFIX}.3
+      - INTERNAL_SUBNET=${IP_PREPREFIX}.1.0
+      - SERVERURL=wg.${DOMAIN}
+    cap_add:
+      - NET_ADMIN
+      - SYS_MODULE
+    sysctls:
+      - net.ipv4.conf.all.src_valid_mark=1
+    volumes:
+      - ${VOLUME_DIR}/Wireguard/Config:/config
+      - ${VOLUME_DIR}/Wireguard/Modules:/lib/modules
+    tty: true
+    restart: always
+networks:
+  ${NETWORK_NAME}:
+    external: true

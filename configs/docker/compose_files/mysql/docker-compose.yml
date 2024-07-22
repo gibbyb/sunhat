@@ -1,0 +1,42 @@
+version: '3'
+services:
+  mysql:
+    image: mysql:latest
+    container_name: mysql
+    hostname: mysql.gib
+    domainname: mysql.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.25
+    ports:
+      - 3306:2206
+    env_file:
+      - ../user_variables.env
+    environment:
+      MYSQL_USER: ${MYSQL_USER}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD}
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      MYSQL_DATABASE: ${MYSQL_DATABASE}
+    volumes:
+      - ${VOLUME_DIR}/MySQL/Data:/var/lib/mysql
+    tty: true
+    restart: unless-stopped
+
+  adminer:
+    image: adminer:latest
+    container_name: adminer
+    hostname: adminer.gib
+    domainname: adminer.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.26
+    ports:
+      - 8080:8080
+    env_file:
+      - ../user_variables.env
+    tty: true
+    restart: unless-stopped
+
+networks:
+  ${NETWORK_NAME}:
+    external: true

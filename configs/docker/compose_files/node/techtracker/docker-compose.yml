@@ -1,0 +1,22 @@
+version: '3'
+services:
+  techtracker:
+    image: node_indexjs:latest
+    container_name: techtracker
+    hostname: techtracker.gib
+    domainname: techtracker.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.27
+    ports:
+      - 3000:3000
+    env_file:
+      - ../../user_variables.env
+    volumes:
+      - ${DAS_DIR}/Web/techtracker:/home/node/app
+    tty: true
+    restart: unless-stopped
+
+networks:
+  ${NETWORK_NAME}:
+    external: true

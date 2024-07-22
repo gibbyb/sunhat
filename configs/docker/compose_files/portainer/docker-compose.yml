@@ -1,0 +1,23 @@
+version: "3"
+services:
+  portainer:
+    image: portainer/portainer-ee:latest
+    container_name: portainer
+    labels:
+      - "com.centurylinklabs.watchtower.enable=true"
+    hostname: port.gib
+    domainname: port.gibbyb.com
+    networks:
+      Gib_Home:
+        ipv4_address: 192.168.0.6
+    ports:
+      - 8000:8000
+      - 9443:9443
+    volumes:
+      - /home/gib/Documents/Media_Server/config/portainer/data:/data
+      - /var/run/docker.sock:/var/run/docker.sock
+    tty: true
+    restart: unless-stopped
+networks:
+  Gib_Home:
+    external: true

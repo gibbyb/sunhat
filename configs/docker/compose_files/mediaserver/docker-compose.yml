@@ -1,0 +1,273 @@
+version: '3.8'
+services:
+  plex:
+    image: plexinc/pms-docker:latest
+    container_name: plex
+    hostname: plex.gib
+    domainname: plex.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.13
+    ports:
+      - 32400:32400/tcp
+      - 3005:3005/tcp
+      - 8324:8324/tcp
+      - 32469:32469/tcp
+      - 1900:1900/udp
+      - 32410:32410/udp
+      - 32412:32412/udp
+      - 32413:32413/udp
+      - 32414:32414/udp
+    env_file:
+      - ../user_variables.env
+    environment:
+      - TZ=${TZ}
+      - PLEX_CLAIM=${PLEX_CLAIM}
+      - PLEX_UID=${PUID}
+      - PLEX_GID=${PGID}
+      - ADVERTISE_IP=${IP_PREFIX}.13
+      - NVIDIA_VISIBLE_DEVICES=all
+      - NVIDIA_DRIVER_CAPABILITIES=compute,video,utility
+    volumes:
+      - ${VOLUME_DIR}/Plex/Config:/config
+      - ${VOLUME_DIR}/Plex/Transcode:/transcode
+      #- /run:/run # You might need this with Fedora
+      - ${DAS_DIR}/Media/Movies:/data/movies
+      - ${DAS_DIR}/Media/TVShows:/data/tv
+      - ${DAS_DIR}/Media/Music:/data/music
+    devices:
+      - /dev/dri:/dev/dri
+    tty: true
+    restart: unless-stopped
+    runtime: nvidia
+
+  audiobookshelf:
+    image: ghcr.io/advplyr/audiobookshelf:latest
+    container_name: audiobookshelf
+    hostname: audiobookshelf.gib
+    domainname: audiobookshelf.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.14
+    ports:
+      - 80:80
+    env_file:
+      - ../user_variables.env
+    environment:
+      - TZ=${TZ}
+    volumes:
+      - ${VOLUME_DIR}/Audiobookshelf/Config:/config
+      - ${VOLUME_DIR}/Audiobookshelf/Metadata:/metadata
+      - ${DAS_DIR}/Media/Audiobooks:/audiobooks
+      - ${DAS_DIR}/Media/Podcasts:/podcasts
+    tty: true
+    restart: unless-stopped
+
+  sabnzbd:
+    image: binhex/arch-sabnzbdvpn:latest
+    container_name: sabnzbd
+    hostname: sabnzbd.gib
+    domainname: sabnzbd.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.15
+    ports:
+      - 8080:8080
+      - 8090:8090
+      - 8118:8118
+    env_file:
+      - ../user_variables.env
+    environment:
+      - VPN_ENABLED=yes
+      - VPN_USER=${VPN_USER}
+      - VPN_PASS=${VPN_PASS}
+      - VPN_PROV=${VPN_PROV}
+      - VPN_CLIENT=${VPN_CLIENT}
+      - STRICT_PORT_FORWARD=yes
+      - LAN_NETWORK=${SUBNET}
+      - PUID=${PUID}
+      - PGID=${PGID}
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ${VOLUME_DIR}/Sabnzbd/Config:/config
+      - /etc/localtime:/etc/localtime:ro
+    tty: true
+    restart: unless-stopped
+
+  qbittorrentvpn:
+    image: binhex/arch-qbittorrentvpn:latest
+    container_name: qbittorrentvpn
+    hostname: qbittorrentvpn.gib
+    domainname: qbittorrent.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.16
+    ports:
+      - 6881:6881
+      - 6881:6881/udp
+      - ${QB_WEBUI_PORT}:${QB_WEBUI_PORT}
+      - 8118:8118
+    env_file:
+      - ../user_variables.env
+    environment:
+      - VPN_ENABLED=yes
+      - VPN_USER=${VPN_USER}
+      - VPN_PASS=${VPN_PASS}
+      - VPN_PROV=${VPN_PROV}
+      - VPN_CLIENT=${VPN_CLIENT}
+      - STRICT_PORT_FORWARD=yes
+      - WEBUI_PORT=${QB_WEBUI_PORT}
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - LAN_NETWORK=${SUBNET}
+      - ENABLE_PRIVOXY=yes
+      - ENABLE_STARTUP_SCRIPTS=no
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ${VOLUME_DIR}/Qbittorrent/Config:/config
+      - /etc/localtime:/etc/localtime:ro
+    tty: true
+    restart: unless-stopped
+
+  overseer:
+    image: lscr.io/linuxserver/overseerr:latest
+    container_name: overseer
+    hostname: overseer.gib
+    domainname: overseer.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.17
+    ports:
+      5055:5055
+    env_file:
+      - ../user_variables.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${VOLUME_DIR}/Overseerr/Config:/config
+    tty: true
+    restart: unless-stopped
+
+  prowlarr:
+    image: lscr.io/linuxserver/prowlarr:latest
+    container_name: prowlarr
+    hostname: prowlarr.gib
+    domainname: prowlarr.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.18
+    ports:
+      9696:9696
+    env_file:
+      - ../user_variables.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${VOLUME_DIR}/Prowlarr/Config:/config
+    tty: true
+    restart: unless-stopped
+
+  lidarr:
+    image: ghcr.io/linuxserver/lidarr:latest
+    container_name: lidarr
+    hostname: lidarr.gib
+    domainname: lidarr.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.19
+    ports:
+      - 8686:8686
+    env_file:
+      - ../user_variables.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${VOLUME_DIR}/Lidarr/Config:/config
+      - ${DAS_DIR}/Media/Music:/music
+      - ${VOLUME_DIR}/Sabnzbd/Config/Downloads:/downloads
+      - ${VOLUME_DIR}/Qbittorrent/Config/qBittorrent/downloads:/qb_downloads
+    tty: true
+    restart: unless-stopped
+
+  radarr:
+    image: ghcr.io/linuxserver/radarr:latest
+    container_name: radarr
+    hostname: radarr.gib
+    domainname: radarr.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.20
+    ports:
+      - 7878:7878
+    env_file:
+      - ../user_variables.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${VOLUME_DIR}/Radarr/Config:/config
+      - ${DAS_DIR}/Media/Movies:/movies
+      - ${VOLUME_DIR}/Sabnzbd/Config/Downloads:/downloads
+      - ${VOLUME_DIR}/Qbittorrent/Config/qBittorrent/downloads:/qb_downloads
+    tty: true
+    restart: unless-stopped
+
+  sonarr:
+    image: ghcr.io/linuxserver/sonarr:latest
+    container_name: sonarr
+    hostname: sonarr.gib
+    domainname: sonarr.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.21
+    ports:
+      - 8989:8989
+    env_file:
+      - ../user_variables.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${VOLUME_DIR}/Sonarr/Config:/config
+      - ${DAS_DIR}/Media/TVShows:/tv
+      - ${VOLUME_DIR}/Sabnzbd/Config/Downloads:/downloads
+      - ${VOLUME_DIR}/Qbittorrent/Config/qBittorrent/downloads:/qb_downloads
+    tty: true
+    restart: unless-stopped
+
+  bazarr:
+    image: lscr.io/linuxserver/bazarr:latest
+    container_name: bazarr
+    hostname: bazarr.gib
+    domainname: bazarr.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.22
+    ports:
+      - 6767:6767
+    env_file:
+      - ../user_variables.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+      - TZ=${TZ}
+    volumes:
+      - ${VOLUME_DIR}/Bazarr/Config:/config
+      - ${DAS_DIR}/Media/Movies:/movies
+      - ${DAS_DIR}/Media/TVShows:/tv
+    tty: true
+    restart: unless-stopped
+
+networks:
+  ${NETWORK_NAME}:
+    external: true

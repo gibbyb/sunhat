@@ -1,0 +1,30 @@
+version: "3"
+services:
+  pihole:
+    image: pihole/pihole:latest
+    container_name: pihole
+    hostname: pihole
+    domainname: pihole.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.3
+    ports: 
+      - "53:53/tcp"
+      - "53:53/udp"
+      - "67:67/udp" 
+      - "80:80/tcp"
+    env_file:
+      - ../user_variables.env
+    environment:
+      TZ: ${TZ}
+      WEBPASSWORD: ${PIHOLE_PW}
+    cap_add:
+      - NET_ADMIN
+    volumes:
+      - ${VOLUME_DIR}/Pihole/Etc:/etc/pihole
+      - ${VOLUME_DIR}/Pihole/DNSMasq:/etc/dnsmasq.d
+    tty: true
+    restart: unless-stopped
+networks:
+  ${NETWORK_NAME}:
+    external: true

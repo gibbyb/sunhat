@@ -1,0 +1,27 @@
+version: '3'
+services:
+  satisfactory_server:
+    image: wolveix/satisfactory-server:latest
+    container_name: satisfactory_server
+    hostname: satisfactory_server.gib
+    domainname: satisfactory.${DOMAIN}
+    networks:
+      ${NETWORK_NAME}:
+        ipv4_address: ${IP_PREFIX}.34
+    ports:
+      - 7777:7777/udp
+      - 15000:15000/udp
+      - 15777:15777/udp
+    env_file:
+      - ../user_variables.env
+    environment:
+      - PUID=${PUID}
+      - PGID=${PGID}
+    volumes:
+      - ${VOLUME_DIR}/Satisfactory_Server/Data:/config
+    tty: true
+    restart: unless-stopped
+
+networks:
+  ${NETWORK_NAME}:
+    external: true
