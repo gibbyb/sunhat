@@ -1,0 +1,19 @@
+/* Make Sidebery look good */
+#sidebar{
+  --uc-sidebar-width: 150px;
+  min-width: var(--uc-sidebar-width) !important;
+  width: var(--uc-sidebar-width) !important;
+  max-width: var(--uc-sidebar-width) !important;
+}
+#sidebar-header{
+  display: none;
+  min-width: var(--uc-sidebar-width) !important;
+  width: var(--uc-sidebar-width) !important;
+  max-width: var(--uc-sidebar-width) !important;
+}
+#sidebar-box{
+  min-width: var(--uc-sidebar-width) !important;
+  width: var(--uc-sidebar-width) !important;
+  max-width: var(--uc-sidebar-width) !important;
+}
+#sidebar-splitter{ display: none }
