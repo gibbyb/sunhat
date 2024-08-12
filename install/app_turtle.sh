@@ -3,3 +3,4 @@ cd ~/.local/share/sunhat/packages/turtle/
 python install.py install --user
 pip3 install . --user
 nautilus -q nautilus --no-desktop
+cd ~/.local/share/sunhat

@@ -1,1 +1,1 @@
-flatpak install -y com.unity.UnityHub
+flatpak install -y flathub com.unity.UnityHub

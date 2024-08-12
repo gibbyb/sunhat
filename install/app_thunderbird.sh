@@ -1,1 +1,1 @@
-flatpak install -y org.mozilla.Thunderbird
+flatpak install -y flathub org.mozilla.Thunderbird

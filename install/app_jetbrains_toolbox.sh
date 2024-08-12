@@ -1,3 +1,4 @@
+source ~/.local/share/sunhat/sources/env.sh
 xdg-open "$JETBRAINS_TOOLBOX_LINK" > /dev/null 2>&1
 read -rp "Once downloaded & in Downloads directory, press Enter to continue..."
 tar -xzf ~/Downloads/jetbrains-toolbox-*.tar.gz -C ~/Downloads

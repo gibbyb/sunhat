@@ -1,1 +1,1 @@
-flatpak install -y com.moonlight_stream.Moonlight.desktop
+flatpak install -y com.moonlight_stream.Moonlight

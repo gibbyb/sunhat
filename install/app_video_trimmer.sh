@@ -1,1 +1,1 @@
-flatpak install -y org.gnome.gitlab.YaLTeR.VideoTrimmer
+flatpak install -y flathub org.gnome.gitlab.YaLTeR.VideoTrimmer

@@ -1,1 +1,1 @@
-flatpak install -y org.yuzu_emu.yuzu
+flatpak install -y flathub org.yuzu_emu.yuzu

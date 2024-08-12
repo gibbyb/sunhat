@@ -1,6 +1,0 @@
-[Desktop Entry]
-Name=Jump Desktop
-Exec=bash -c "nohup wine /home/gib/.wine/drive_c/Program\ Files/Phase\ Five\ Systems/Jump\ Desktop/JumpClient.exe &"
-Terminal=false
-Type=Application
-Icon=/home/gib/.wine/drive_c/Program\ Files/Phase\ Five\ Systems/Jump\ Desktop/icon/jump_icon.png

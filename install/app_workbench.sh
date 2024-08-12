@@ -1,1 +1,1 @@
-flatpak install -y re.sonny.Workbench
+flatpak install -y flathub re.sonny.Workbench

@@ -18,12 +18,10 @@ end)
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
-  'asm_lsp',
   'bashls',
   'clangd',
   'cmake',
   'cssls',
-  'csharp_ls',
   'cssmodules_ls',
   'docker_compose_language_service',
   'dockerls',

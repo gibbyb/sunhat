@@ -1,1 +1,1 @@
-flatpak install -y net.supertuxkart.SuperTuxKart
+flatpak install -y flathub net.supertuxkart.SuperTuxKart

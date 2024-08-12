@@ -1,1 +1,1 @@
-flatpak install -y de.haeckerfelix.Fragments
+flatpak install -y flathub de.haeckerfelix.Fragments

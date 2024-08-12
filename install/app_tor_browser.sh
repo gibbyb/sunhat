@@ -1,1 +1,1 @@
-flatpak install -y com.github.micahflee.torbrowser-launcher
+flatpak install -y flathub com.github.micahflee.torbrowser-launcher

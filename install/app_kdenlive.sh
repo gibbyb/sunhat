@@ -1,1 +1,1 @@
-flatpak install -y org.kde.kdenlive
+flatpak install -y flathub org.kde.kdenlive

@@ -1,1 +1,1 @@
-flatpak install -y com.github.unrud.VideoDownloader
+flatpak install -y flathub com.github.unrud.VideoDownloader

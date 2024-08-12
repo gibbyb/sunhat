@@ -1,1 +1,1 @@
-flatpak install -y com.prusa3d.PrusaSlicer
+flatpak install -y flathub com.prusa3d.PrusaSlicer

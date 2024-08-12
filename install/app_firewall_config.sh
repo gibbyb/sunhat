@@ -1,1 +1,1 @@
-sudo dnf install -y firewall-config
+sudo dnf install -y fedora firewall-config

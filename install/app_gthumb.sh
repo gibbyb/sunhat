@@ -1,1 +1,1 @@
-flatpak install -y org.gnome.gThumb 
+flatpak install -y flathub org.gnome.gThumb 

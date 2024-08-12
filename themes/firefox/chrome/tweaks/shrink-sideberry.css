@@ -1,6 +1,6 @@
 /* Make Sidebery look good */
 #sidebar{
-  --uc-sidebar-width: 150px;
+  --uc-sidebar-width: 120px;
   min-width: var(--uc-sidebar-width) !important;
   width: var(--uc-sidebar-width) !important;
   max-width: var(--uc-sidebar-width) !important;

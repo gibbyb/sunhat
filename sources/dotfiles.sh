@@ -1,3 +1,5 @@
+# Install Zoxide so it doesnt prompt us to when we source bashrc
+sudo dnf install -y zoxide
 # Make Directory for all Dotfiles so you can sync them with Nextcloud.
 mkdir ~/Documents/Configs
 
