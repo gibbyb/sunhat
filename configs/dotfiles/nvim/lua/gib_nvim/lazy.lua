@@ -75,6 +75,9 @@ require("lazy").setup({
               accept_word = '<C-.>',
             },
             disable_inline_completion = false, -- for cmp
+            condition = function()
+              return true
+            end,
           })
         end,
     },
