@@ -133,3 +133,4 @@ numactl-devel
 openssl-devel
 opus-devel
 pulseaudio-libs-devel
+hipblas

@@ -37,3 +37,5 @@ alias gcad='git commit -a --amend'
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
 alias decompress="tar -xzf"
+
+export HSA_OVERRIDE_GFX_VERSION=11.0.0
