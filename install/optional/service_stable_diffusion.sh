@@ -7,9 +7,9 @@
 # Download Models
 # https://github.com/AUTOMATIC1111/stable-diffusion-webui/wiki/Features#stable-diffusion-20
 sudo dnf install -y python310
-cd ~/.local/share/sunhat/packages/
+cd ~/.local/share/sunhat/packages/ || exit
 git clone https://github.com/AUTOMATIC1111/stable-diffusion-webui
-cd stable-diffusion-webui
+cd stable-diffusion-webui || exit
 python3.10 -m venv venv
 cp ~/.local/share/sunhat/configs/stable_diffusion/webui-user.sh ~/.local/share/sunhat/packages/stable-diffusion-webui/webui-user.sh
 cp ~/.local/share/sunhat/configs/stable_diffusion/stable_diffusion.service ~/.config/systemd/user/stable_diffusion.service
