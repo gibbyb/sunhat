@@ -9,7 +9,6 @@ alias cdcode="cd ~/Documents/Code"
 alias cdsun="cd ~/.local/share/sunhat"
 alias rnr="ranger"
 alias startsunshine="systemctl --user restart sunshine.service"
-alias n.="nvim ."
 alias sourcerc="source ~/.bashrc"
 alias john="~/.local/share/sunhat/packages/JohnTheRipper/run/john"
 
@@ -27,7 +26,10 @@ alias ....='cd ../../..'
 
 # Tools
 alias n='nvim'
+alias n.="nvim ."
+alias nlc="nvim lc"
 alias g='git'
+alias watchsmi="watch -n 3 nvidia-smi"
 
 # Git
 alias gcm='git commit -m'
