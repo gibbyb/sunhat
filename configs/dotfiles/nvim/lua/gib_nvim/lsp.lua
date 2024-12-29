@@ -1,6 +1,8 @@
-local lsp_zero = require('lsp-zero')
+local lsp = require('lsp-zero')
 
-lsp_zero.on_attach(function(client, bufnr)
+lsp.preset('recommended')
+
+lsp.on_attach(function(client, bufnr)
   local opts = {buffer = bufnr, remap = false}
 
   vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
@@ -15,35 +17,37 @@ lsp_zero.on_attach(function(client, bufnr)
   vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
 end)
 
-require('mason').setup({})
+require('mason').setup({
+  ui = {
+    icons = {
+      package_installed = "✓",
+      package_pending = "➜",
+      package_uninstalled = "✗"
+    }
+  }
+})
 require('mason-lspconfig').setup({
   ensure_installed = {
   'bashls',
-  'clangd',
-  'cmake',
   'cssls',
   'cssmodules_ls',
   'docker_compose_language_service',
   'dockerls',
   'eslint',
-  'graphql',
   'intelephense',
   'jsonls',
-  'kotlin_language_server',
   'lua_ls',
   'pyright',
   'rust_analyzer',
   'sqlls',
   'svelte',
   'tailwindcss',
-  'tsserver',
   'yamlls',
-  'vimls',
 },
   handlers = {
-    lsp_zero.default_setup,
+    lsp.default_setup,
     lua_ls = function()
-      local lua_opts = lsp_zero.nvim_lua_ls()
+      local lua_opts = lsp.nvim_lua_ls()
       require('lspconfig').lua_ls.setup(lua_opts)
     end,
   }
@@ -53,6 +57,11 @@ local cmp = require('cmp')
 local cmp_select = {behavior = cmp.SelectBehavior.Select}
 
 cmp.setup({
+  snippet = {
+    expand = function(args)
+      require('luasnip').lsp_expand(args.body)
+    end,
+  },
   sources = {
     --{name = 'supermaven'},
     {name = 'path'},
@@ -61,7 +70,7 @@ cmp.setup({
     {name = 'luasnip', keyword_length = 2},
     {name = 'buffer', keyword_length = 3},
   },
-  formatting = lsp_zero.cmp_format(),
+  formatting = lsp.cmp_format(),
   mapping = cmp.mapping.preset.insert({
     ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
     ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
@@ -70,4 +79,4 @@ cmp.setup({
   }),
 })
 
-lsp_zero.setup()
+lsp.setup()

@@ -37,10 +37,6 @@
             "mode": "float"
         },
         {
-            "wmClass": "mpv",
-            "mode": "float"
-        },
-        {
             "wmClass": "Bitwarden",
             "mode": "float"
         },
@@ -62,6 +58,14 @@
         },
         {
             "wmClass": "com.nextcloud.desktopclient.nextcloud",
+            "mode": "float"
+        },
+        {
+            "wmClass": "mpv",
+            "mode": "float"
+        },
+        {
+            "wmClass": "Spotify",
             "mode": "float"
         }
     ]

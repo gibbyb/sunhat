@@ -6,6 +6,11 @@ matches:
     replace: "Gabriel Brown"
   - trigger: ":fin"
     replace: "Gabriel A Brown"
+  # Email
+  - trigger: ":em"
+    replace: "gib@gibbyb.com"
+  - trigger: ":empro"
+    replace: "me@gbrown.org"
 
   # Date
   - trigger: ":date"
@@ -54,6 +59,10 @@ matches:
   - trigger: ":pymain"
     replace: "#\n#\n# Author: GibbyB (Gabriel Brown)\n#\n\nfrom typing import List\n\n\ndef main():\npass\n\n\nif __name__ == \"__main__\":\nmain()"
 
+  - trigger: ":tsblock"
+    replace: "```TypeScript\n\n```"
+    force_clipboard: true
+
   # Frequent Misspellings
   - trigger: "yoututbe"
     replace: "YouTube"
@@ -63,6 +72,9 @@ matches:
   
   - trigger: "nivm"
     replace: "nvim"
+
+  - trigger: "updaet"
+    replace: "update"
 
   # Good Emojis
   - trigger: ":happy:"

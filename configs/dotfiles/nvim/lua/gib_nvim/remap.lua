@@ -51,6 +51,9 @@ vim.keymap.set("n", "Q", "<nop>")
 -- Format the current buffer using the language server protocol (LSP)
 vim.keymap.set("n", "<leader>kf", vim.lsp.buf.format)
 
+-- Toggle Supermaven with :SupermavenToggle
+vim.keymap.set("n", "<leader>sm", ":SupermavenToggle<CR>")
+
 -- Perform a search and replace operation using the word under the cursor
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 

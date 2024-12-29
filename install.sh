@@ -1,13 +1,16 @@
 # Be fancy
 source ~/.local/share/sunhat/bin/ascii.sh
 
-# Needed for all installers
-sudo dnf update -y
-sudo dnf install -y curl git unzip
+# Quick Questions
+read -p "What is your hostname? " HOSTNAME
 
 # Ensure computer doesn't go to sleep while installing
 gsettings set org.gnome.desktop.screensaver lock-enabled false
 gsettings set org.gnome.desktop.session idle-delay 0
+
+# Needed for all installers
+sudo dnf update -y
+sudo dnf install -y curl git unzip neovim
 
 # Run Scripts Required for Application Installs
 for script in ~/.local/share/sunhat/sources/*.sh; do source $script; done
