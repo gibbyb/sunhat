@@ -1,5 +1,3 @@
-# Install Zoxide so it doesnt prompt us to when we source bashrc
-sudo dnf install -y zoxide
 # Make Directory for all Dotfiles so you can sync them with Nextcloud.
 mkdir ~/Documents/Configs
 
@@ -29,6 +27,19 @@ rm -rf ~/.config/powerline
 ln -s ~/Documents/Configs/powerline ~/.config/powerline
 rm -rf ~/.config/ranger
 ln -s ~/Documents/Configs/ranger ~/.config/ranger
+rm -rf ~/.config/hypr
+rm -rf ~/.config/waybar
+
+if [ "$HOST_NAME" = "gulfport-gib" || "$HOST_NAME" = "IT2200936" ]; then
+  ln -s ~/Documents/Configs/hyprland/gulfport/hypr ~/.config/hypr
+  ln -s ~/Documents/Configs/hyprland/gulfport/waybar ~/.config/waybar
+elif [ "$HOST_NAME" = "desktop-gib" || "$HOST_NAME" = "desktop" ]; then
+  ln -s ~/Documents/Configs/hyprland/desktop/hypr ~/.config/hypr
+  ln -s ~/Documents/Configs/hyprland/desktop/waybar ~/.config/waybar
+else
+  ln -s ~/Documents/Configs/hyprland/laptop/hypr ~/.config/hypr
+  ln -s ~/Documents/Configs/hyprland/laptop/waybar ~/.config/waybar
+fi
 
 # Copy any additional files such as Wallpapers,
 # Icons, .desktop files, & Nautilus Extensions

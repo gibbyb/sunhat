@@ -10,7 +10,7 @@ gsettings set org.gnome.desktop.session idle-delay 0
 
 # Needed for all installers
 sudo dnf update -y
-sudo dnf install -y curl git unzip neovim
+sudo dnf install -y curl git unzip neovim kitty zoxide
 
 # Run Scripts Required for Application Installs
 for script in ~/.local/share/sunhat/sources/*.sh; do source $script; done
