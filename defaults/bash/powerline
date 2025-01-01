@@ -1,7 +1,12 @@
 # Powerline configuration
-if [ -f /usr/bin/powerline-daemon ]; then
-    powerline-daemon -q
-    POWERLINE_BASH_CONTINUATION=1
-    POWERLINE_BASH_SELECT=1
-    source /usr/share/powerline/bash/powerline.sh
-fi
+#if [ -f /usr/bin/powerline-daemon ]; then
+    #powerline-daemon -q
+    #POWERLINE_BASH_CONTINUATION=1
+    #POWERLINE_BASH_SELECT=1
+    #source /usr/share/powerline/bash/powerline.sh
+#fi
+# -----------------------------------------------------
+# Prompt
+# -----------------------------------------------------
+# eval "$(oh-my-posh init bash --config $HOME/.config/ohmyposh/zen.toml)"
+eval "$(oh-my-posh init bash --config $HOME/.config/ohmyposh/EDM115-newline.omp.json)"

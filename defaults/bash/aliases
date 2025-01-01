@@ -11,6 +11,11 @@ alias rnr="ranger"
 alias startsunshine="systemctl --user restart sunshine.service"
 alias sourcerc="source ~/.bashrc"
 alias john="~/.local/share/sunhat/packages/JohnTheRipper/run/john"
+alias c="clear"
+alias shutdown="systemctl poweroff"
+alias ts="~/.config/hypr/scripts/snapshot.sh"
+alias wifi="mctui"
+alias update-grub="sudo grub-mkconfig -o /etc/grub2-efi.cfg"
 
 # File system
 alias ls='eza -lh --group-directories-first --icons'
@@ -39,3 +44,14 @@ alias gcad='git commit -a --amend'
 # Compression
 compress() { tar -czf "${1%/}.tar.gz" "${1%/}"; }
 alias decompress="tar -xzf"
+
+# ML4W Apps
+#alias ml4w='com.ml4w.welcome'
+#alias ml4w-settings='com.ml4w.dotfilessettings'
+#alias ml4w-hyprland='com.ml4w.hyprland.settings'
+#alias ml4w-options='ml4w-hyprland-setup -m options'
+#alias ml4w-sidebar='ags toggle sidebar'
+#alias ml4w-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
+#alias ml4w-hyprland-diagnosis='~/.config/hypr/scripts/diagnosis.sh'
+#alias ml4w-qtile-diagnosis='~/.config/ml4w/qtile/scripts/diagnosis.sh'
+#alias ml4w-update='~/.config/ml4w/update.sh'
