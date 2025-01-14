@@ -1,9 +1,9 @@
 /* Make Sidebery look good */
 #sidebar{
   --uc-sidebar-width: 120px;
-  min-width: var(--uc-sidebar-width) !important;
-  width: var(--uc-sidebar-width) !important;
-  max-width: var(--uc-sidebar-width) !important;
+  min-width: var(--uc-sidebar-width);
+  width: var(--uc-sidebar-width);
+  max-width: var(--uc-sidebar-width);
 }
 #sidebar-header{
   display: none;
