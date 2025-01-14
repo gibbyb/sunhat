@@ -1,0 +1,74 @@
+#!/usr/bin/env python3
+
+import subprocess
+import questionary
+import re
+import sys
+
+def get_interfaces():
+    try:
+        # Run tcpdump -D command
+        result = subprocess.run(['sudo', 'tcpdump', '-D'], 
+                              capture_output=True, 
+                              text=True)
+        
+        # Split output into lines and create a list of interfaces
+        interfaces = []
+        for line in result.stdout.split('\n'):
+            if line.strip():
+                # Extract interface name and description
+                match = re.match(r'\d+\.(.+)', line)
+                if match:
+                    interfaces.append(line)
+        
+        return interfaces
+    except Exception as e:
+        print(f"Error getting interfaces: {e}")
+        sys.exit(1)
+
+def get_port_info(interface_number):
+    try:
+        # Extract just the number from the interface selection
+        number = interface_number.split('.')[0]
+        
+        # Run tcpdump command for port info
+        cmd = [
+            'sudo', 'tcpdump', '-nnv',
+            '-i', number,
+            '-s', '1500',
+            '-c', '1',
+            'ether[12:2]==0x88cc'
+        ]
+        
+        print("\nListening for LLDP packets (this might take a few seconds)...")
+        result = subprocess.run(cmd, capture_output=True, text=True)
+        
+        return result.stdout or result.stderr
+    except Exception as e:
+        print(f"Error getting port info: {e}")
+        sys.exit(1)
+
+def main():
+    # Get list of interfaces
+    interfaces = get_interfaces()
+    
+    if not interfaces:
+        print("No interfaces found!")
+        sys.exit(1)
+    
+    # Let user select an interface
+    selected = questionary.select(
+        "Select an interface to check port information:",
+        choices=interfaces
+    ).ask()
+    
+    if selected:
+        # Get and display port information
+        port_info = get_port_info(selected)
+        print("\nPort Information:")
+        print(port_info)
+    else:
+        print("No interface selected.")
+
+if __name__ == "__main__":
+    main()
