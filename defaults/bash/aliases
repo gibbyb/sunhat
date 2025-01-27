@@ -35,6 +35,7 @@ alias n.="nvim ."
 alias nlc="nvim lc"
 alias g='git'
 alias watchsmi="watch -n 3 nvidia-smi"
+alias watchamdsmi="watch -n 3 rocm-smi"
 
 # Git
 alias gcm='git commit -m'
