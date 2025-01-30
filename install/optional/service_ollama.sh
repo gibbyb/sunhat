@@ -136,12 +136,13 @@ Description=Ollama Service
 After=network-online.target
 
 [Service]
-ExecStart=/bin/bash -lc 'OLLAMA_HOST=0.0.0.0:4242 $BINDIR/ollama serve'
+ExecStart=$BINDIR/ollama serve
 User=ollama
 Group=ollama
 Restart=always
 RestartSec=3
 Environment="PATH=$PATH"
+Environment="OLLAMA_HOST=0.0.0.0:4242"
 
 [Install]
 WantedBy=default.target

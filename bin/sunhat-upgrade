@@ -1,0 +1,29 @@
+#!/bin/bash
+
+echo "Updating ollama..."
+source $SUNHAT_PATH/install/optional/service_ollama.sh
+echo "Ollama Update Complete."
+
+echo "Updating Espanso..."
+cd ~/.local/share/sunhat/packages/espanso
+git pull
+cargo install --force cargo-make --version 0.34.0
+cargo make --profile release --env NO_X11=true build-binary
+sudo mv target/release/espanso /usr/local/bin/espanso
+sudo setcap "cap_dac_override+p" $(which espanso)
+espanso service register
+espanso start
+echo "Espanso Update Complete."
+
+
+echo "Updating John the Ripper..."
+cd ~/.local/share/sunhat/packages/JohnTheRipper/src
+git pull
+./configure && make
+echo "John the Ripper Update Complete."
+
+echo "Updating Hanabi"
+cd ~/.local/share/sunhat/packages/hanabi
+git pull
+./run.sh install
+echo "Hanabi installed"
