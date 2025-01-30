@@ -16,11 +16,11 @@ espanso start
 echo "Espanso Update Complete."
 
 
-echo "Updating John the Ripper..."
-cd ~/.local/share/sunhat/packages/JohnTheRipper/src
-git pull
-./configure && make
-echo "John the Ripper Update Complete."
+#echo "Updating John the Ripper..."
+#cd ~/.local/share/sunhat/packages/JohnTheRipper/src
+#git pull
+#./configure && make
+#echo "John the Ripper Update Complete."
 
 echo "Updating Hanabi"
 cd ~/.local/share/sunhat/packages/hanabi
