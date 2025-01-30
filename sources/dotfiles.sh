@@ -23,6 +23,8 @@ rm -rf ~/.config/neomutt
 ln -s ~/Documents/Configs/neomutt ~/.config/neomutt
 rm -rf ~/.config/nvim
 ln -s ~/Documents/Configs/nvim ~/.config/nvim
+rm -rf ~/.config/ohmyposh
+ln -s ~/Documents/Configs/ohmyposh ~/.config/ohmyposh
 rm -rf ~/.config/powerline
 ln -s ~/Documents/Configs/powerline ~/.config/powerline
 rm -rf ~/.config/ranger
