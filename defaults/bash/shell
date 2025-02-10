@@ -3,16 +3,6 @@ if [ -f /etc/bashrc ]; then
 	. /etc/bashrc
 fi
 
-# Use bash-completion, if available
-[[ $PS1 && -f /usr/share/bash-completion/bash_completion ]] && \
-    . /usr/share/bash-completion/bash_completion
-
-# History control
-shopt -s histappend
-HISTCONTROL=ignoreboth
-HISTSIZE=32768
-HISTFILESIZE="${HISTSIZE}"
-
 # Editor used by CLI
 export EDITOR="nvim"
 export SUDO_EDITOR="$EDITOR"
@@ -23,10 +13,17 @@ export CARGO_PATH="$HOME/.cargo"
 export BUN_INSTALL="$HOME/.bun"
 export PYENV_ROOT="$HOME/.pyenv"
 export PNPM_HOME="$HOME/.local/share/pnpm"
+export NVM_DIR="$HOME/.nvm"
 
 # Set complete path
 export PATH="$HOME/bin:$HOME/.local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:$SUNHAT_PATH/bin:$BUN_INSTALL/bin:$CARGO_PATH/bin:$PNPM_HOME:$PYENV_ROOT/bin:$HOME/.rbenv/bin:/usr/lib/ccache/bin/"
-set +h
+
+# Nvm
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 # Zoxide
 eval "$(zoxide init bash)"
+
+# Oh My Posh
+eval "$(oh-my-posh init bash --config $HOME/.config/ohmyposh/EDM115-newline.omp.json)"
