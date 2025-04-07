@@ -31,5 +31,9 @@ gsettings set org.gnome.desktop.session idle-delay 300
 # Upgrade everything that might ask for a reboot last
 sudo dnf update -y --refresh
 
+# Replace gnome-terminal with kitty
+sudo mv /usr/bin/gnome-terminal /usr/bin/gnome-terminal.NOPE
+sudo ln -sfv kitty gnome-terminal
+
 # Logout to pickup changes
 gum confirm "Ready to logout for all settings to take effect?" && gnome-session-quit --logout --no-prompt
