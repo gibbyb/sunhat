@@ -33,7 +33,7 @@ sudo dnf update -y --refresh
 
 # Replace gnome-terminal with kitty
 sudo mv /usr/bin/gnome-terminal /usr/bin/gnome-terminal.NOPE
-sudo ln -sfv kitty gnome-terminal
+sudo ln -sfv kitty /usr/bin/gnome-terminal
 
 # Logout to pickup changes
 gum confirm "Ready to logout for all settings to take effect?" && gnome-session-quit --logout --no-prompt
