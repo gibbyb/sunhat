@@ -16,6 +16,8 @@ alias shutdown="systemctl poweroff"
 alias ts="~/.config/hypr/scripts/snapshot.sh"
 alias wifi="mctui"
 alias update-grub="sudo grub-mkconfig -o /etc/grub2-efi.cfg"
+alias nvidia-smi-docker='sudo docker run --rm --gpus all --privileged nvidia/cuda:11.3.1-base nvidia-smi'
+alias ncconnect='sudo docker exec -u www-data -it nextcloud-aio-nextcloud bash'
 
 # File system
 alias ls='eza -lh --group-directories-first --icons'
