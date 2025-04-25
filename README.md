@@ -6,17 +6,17 @@
 
 #### Install:
 ```bash
-wget -qO- https://github.com/gibbyb/sunhat/releases/download/1.0/install.sh | bash
+wget -qO- https://github.com/gibbyb/sunhat/releases/download/1.0/install
 ```
 ##### Mirror:
 ```bash
-wget -qO- https://git.gibbyb.com/gib/sunhat/releases/download/1.0/install.sh | bash
+wget -qO- https://git.gbrown.org/gib/sunhat/releases/download/1.0/install
 ```
 
 ##### To Do:
 
-- [ ] Add eza installation at is no longer in repository
-- [ ] Change sunshine copr repo to the official one.
+- [X] Add eza installation at is no longer in repository
+- [X] Change sunshine copr repo to the official one.
 - [ ] Add a way to change the font & theme of kitty using the script
-- [ ] Add a way to update all packages installed with git in the packages folder.
+- [X] Add a way to update all packages installed with git in the packages folder.
 - [ ] Add a way to update all links to packages installed by link
