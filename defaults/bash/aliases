@@ -1,3 +1,5 @@
+#!/bin/bash
+
 # Aliases I like
 alias update="sudo dnf update -y && flatpak update -y"
 alias install="sudo dnf install -y"

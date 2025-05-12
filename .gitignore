@@ -1,3 +1,4 @@
 /packages/*/*
 /packages/*
 /packages/**
+/defaults/bash/api_keys
