@@ -1,0 +1,31 @@
+
+# Theme
+
+theme = tokyonight_moon
+font-family = "VictorMono Nerd Font Mono"
+font-family-bold = "VictorMono Nerd Font Mono, Bold"
+font-family-italic = "VictorMono Nerd Font Mono, Regular Italic"
+font-family-bold-italic = "VictorMono Nerd Font Mono, Bold Italic"
+font-size = 15
+background-opacity = 0.92
+background-blur = true
+
+# Keybindings
+keybind = ctrl+shift+r=reload_config
+
+## Tabs
+keybind = ctrl+shift+h=previous_tab
+keybind = ctrl+shift+l=next_tab
+keybind = ctrl+shift+j=move_tab:-1
+keybind = ctrl+shift+k=move_tab:1
+keybind = ctrl+shift+q=close_tab
+
+## Splits
+keybind = ctrl+shift+b=new_split:right
+keybind = ctrl+shift+d=new_split:down
+keybind = ctrl+shift+,=goto_split:previous
+keybind = ctrl+shift+.=goto_split:next
+keybind = ctrl+shift+up=goto_split:up
+keybind = ctrl+shift+down=goto_split:down
+keybind = ctrl+shift+left=goto_split:left
+keybind = ctrl+shift+right=goto_split:right

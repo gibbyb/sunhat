@@ -60,7 +60,11 @@ matches:
     replace: "#\n#\n# Author: GibbyB (Gabriel Brown)\n#\n\nfrom typing import List\n\n\ndef main():\npass\n\n\nif __name__ == \"__main__\":\nmain()"
 
   - trigger: ":tsblock"
-    replace: "```TypeScript\n\n```"
+    replace: "```ts\n\n```"
+    force_clipboard: true
+
+  - trigger: ":tsxblock"
+    replace: "```tsx\n\n```"
     force_clipboard: true
 
   # Frequent Misspellings
@@ -75,6 +79,102 @@ matches:
 
   - trigger: "updaet"
     replace: "update"
+
+  - trigger: "lenght"
+    replace: "length"
+  
+  - trigger: "whiel"
+    replace: "while"
+
+  - trigger: "heigth"
+    replace: "height"
+
+  - trigger: "compsoe"
+    replace: "compose"
+
+  - trigger: "compseo"
+    replace: "compose"
+
+  - trigger: "comspoe"
+    replace: "compose"
+
+  - trigger: "ocmpose"
+    replace: "compose"
+
+  - trigger: "copmose"
+    replace: "compose"
+
+  - trigger: "cmopose"
+    replace: "compose"
+
+  - trigger: "cmopoes"
+    replace: "compose"
+
+  - trigger: "compoes"
+    replace: "compose"
+
+  - trigger: "dcoker"
+    replace: "docker"
+
+  - trigger: "dcoekr"
+    replace: "docker"
+
+  - trigger: "dockre"
+    replace: "docker"
+
+  - trigger: "dokcre"
+    replace: "docker"
+
+  - trigger: "dokcer"
+    replace: "docker"
+
+  - trigger: "gborwn"
+    replace: "gbrown"
+
+  - trigger: "gbrwon"
+    replace: "gbrown"
+
+  - trigger: "gbronw"
+    replace: "gbrown"
+
+  - trigger: "grbown"
+    replace: "gbrown"
+
+  - trigger: "restrat"
+    replace: "restart"
+
+  - trigger: "resatrt"
+    replace: "restart"
+
+  - trigger: "retsart"
+    replace: "restart"
+
+  - trigger: "restatr"
+    replace: "restart"
+
+  - trigger: "restrta"
+    replace: "restart"
+
+  - trigger: "updaet"
+    replace: "update"
+
+  - trigger: "updtae"
+    replace: "update"
+
+  - trigger: "udpate"
+    replace: "update"
+
+  - trigger: "upadte"
+    replace: "update"
+
+  - trigger: "suod"
+    replace: "sudo"
+
+  - trigger: "sduo"
+    replace: "sudo"
+
+  - trigger: "sodu"
+    replace: "sudo"
 
   # Good Emojis
   - trigger: ":happy:"

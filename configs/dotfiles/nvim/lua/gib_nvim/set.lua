@@ -25,6 +25,8 @@ vim.opt.signcolumn = "yes"
 vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
+vim.cmd([[set list]])
+vim.cmd([[set listchars=trail:⋅]])
 
 vim.opt.colorcolumn = "120"
 vim.o.background = "dark" -- or "light" for light mode

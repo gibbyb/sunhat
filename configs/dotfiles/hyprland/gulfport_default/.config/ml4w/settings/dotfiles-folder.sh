@@ -1,0 +1,1 @@
+Documents/Configs/hyprland/gulfport_default

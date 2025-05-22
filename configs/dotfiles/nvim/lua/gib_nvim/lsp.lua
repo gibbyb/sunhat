@@ -1,4 +1,5 @@
 local lsp = require('lsp-zero')
+local lspkind = require('lspkind')
 
 lsp.preset('recommended')
 
@@ -29,8 +30,6 @@ require('mason').setup({
 require('mason-lspconfig').setup({
   ensure_installed = {
   'bashls',
-  'cssls',
-  'cssmodules_ls',
   'docker_compose_language_service',
   'dockerls',
   'eslint',
@@ -40,7 +39,6 @@ require('mason-lspconfig').setup({
   'pyright',
   'rust_analyzer',
   'sqlls',
-  'svelte',
   'tailwindcss',
   'yamlls',
 },
@@ -63,20 +61,63 @@ cmp.setup({
     end,
   },
   sources = {
-    --{name = 'supermaven'},
+    {name = 'supermaven'},
     {name = 'path'},
     {name = 'nvim_lsp'},
     {name = 'nvim_lua'},
     {name = 'luasnip', keyword_length = 2},
     {name = 'buffer', keyword_length = 3},
   },
-  formatting = lsp.cmp_format(),
+  formatting = {
+    format = lspkind.cmp_format({
+      mode = 'symbol',
+      maxwidth = {
+        menu = 50,
+        abbr = 50,
+      },
+      symbol_map = {
+        Supermaven = "",
+      },
+      ellipsis_char = '...',
+      show_labelDetails = true,
+      before = function (entry, vim_item)
+        -- ...
+        return vim_item
+      end
+    })
+  },
   mapping = cmp.mapping.preset.insert({
-    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    -- Tab to select the next item
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        if cmp.get_selected_entry() then
+          cmp.confirm({select = false})
+        else
+          cmp.select_next_item()
+        end
+      else
+        fallback()
+      end
+    end, { 'i', 's' }),
+
     ['<C-y>'] = cmp.mapping.confirm({ select = true }),
     ['<C-Space>'] = cmp.mapping.complete(),
+    ['<C-e>'] = cmp.mapping.abort(),
+    ['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    ['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
   }),
+  preselect = cmp.PreselectMode.Item,
+  completion = {
+    completeopt = 'menu,menuone,noinsert',
+  }
+  --mapping = cmp.mapping.preset.insert({
+    --['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+    --['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
+    --['<C-y>'] = cmp.mapping.confirm({ select = true }),
+    --['<C-Space>'] = cmp.mapping.complete(),
+  --}),
 })
 
 lsp.setup()

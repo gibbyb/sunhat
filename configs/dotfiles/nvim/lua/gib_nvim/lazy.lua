@@ -21,8 +21,44 @@ require("lazy").setup({
     priority = 1000,
   },
   {
-    'folke/trouble.nvim', dependencies =
-    { 'nvim-tree/nvim-web-devicons' }
+    "folke/trouble.nvim",
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    opts = {}, -- for default options, refer to the configuration section for custom setup.
+    cmd = "Trouble",
+    keys = {
+      {
+        "<leader>xx",
+        "<cmd>Trouble diagnostics toggle<cr>",
+        desc = "Diagnostics (Trouble)",
+      },
+      {
+        "<leader>xX",
+        "<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+        desc = "Buffer Diagnostics (Trouble)",
+      },
+      {
+        "<leader>cs",
+        "<cmd>Trouble symbols toggle focus=false<cr>",
+        desc = "Symbols (Trouble)",
+      },
+      {
+        "<leader>cl",
+        "<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+        desc = "LSP Definitions / references / ... (Trouble)",
+      },
+      {
+        "<leader>xL",
+        "<cmd>Trouble loclist toggle<cr>",
+        desc = "Location List (Trouble)",
+      },
+      {
+        "<leader>xQ",
+        "<cmd>Trouble qflist toggle<cr>",
+        desc = "Quickfix List (Trouble)",
+      },
+    },
   },
   {
     'nvim-treesitter/nvim-treesitter',
@@ -58,6 +94,7 @@ require("lazy").setup({
   {'hrsh7th/cmp-path'},
   {'hrsh7th/cmp-buffer'},
   {'hrsh7th/cmp-nvim-lua'},
+  {'onsails/lspkind.nvim'},
   {'L3MON4D3/LuaSnip'},
   {'saadparwaiz1/cmp_luasnip'},
   {'rafamadriz/friendly-snippets'},
@@ -70,7 +107,7 @@ require("lazy").setup({
           clear_suggestion = '<C-]>',
           accept_word = '<C-.>',
         },
-        disable_inline_completion = false, -- for cmp
+        disable_inline_completion = true, -- for cmp
       })
     end,
   },
@@ -112,23 +149,6 @@ require("lazy").setup({
         end,
       },
     },
-    config = function()
-      require('neo-tree').setup({
-        close_if_last_window = true,
-        popup_border_style = "rounded",
-        enable_git_status = true,
-        enable_diagnostics = true,
-        default_component_configs = {
-          container = {
-            enable_character_fade = true
-          },
-          indent = {
-            indent_size = 2,
-            padding = 1,
-          }
-        }
-      })
-    end,
   },
   {
     'romgrk/barbar.nvim', dependencies = {
@@ -177,29 +197,56 @@ require("lazy").setup({
     dependencies = {
       "nvim-treesitter/nvim-treesitter",
     },
-    opts = {
-      backend = "kitty",
-      integrations = {
-        markdown = {
-          enabled = true,
-          clear_in_insert_mode = false,
-          download_remote_images = true,
-          only_render_image_at_cursor = false,
-          filetypes = { "markdown", "vimwiki" }, -- markdown extensions (ie. quarto) can go here
-        },
-        neorg = {
-          enabled = true,
-          clear_in_insert_mode = false,
-          download_remote_images = true,
-          only_render_image_at_cursor = false,
-          filetypes = { "norg" },
+  },
+  {
+    "rest-nvim/rest.nvim",
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      opts = function (_, opts)
+        opts.ensure_installed = opts.ensure_installed or {}
+        table.insert(opts.ensure_installed, "http")
+      end,
+    }
+  },
+  {
+    "yetone/avante.nvim",
+    event = "VeryLazy",
+    version = false, -- Never set this value to "*"! Never!
+    build = "make", -- or `make BUILD_FROM_SOURCE=true`
+    -- build = "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false" -- for windows
+    dependencies = {
+      "nvim-treesitter/nvim-treesitter",
+      "stevearc/dressing.nvim",
+      "nvim-lua/plenary.nvim",
+      "MunifTanjim/nui.nvim",
+      --- The below dependencies are optional,
+      "hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+      "ibhagwan/fzf-lua", -- for file_selector provider fzf
+      "nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+      {
+        -- support for image pasting
+        "HakonHarnes/img-clip.nvim",
+        event = "VeryLazy",
+        opts = {
+          -- recommended settings
+          default = {
+            embed_image_as_base64 = false,
+            prompt_for_file_name = false,
+            drag_and_drop = {
+              insert_mode = true,
+            },
+          },
         },
       },
-      max_width = nil,
-      max_height = nil,
-      max_width_window_percentage = nil,
-      max_height_window_percentage = 50,
-      kitty_method = "normal",
+      {
+        -- Make sure to set this up properly if you have lazy=true
+        'MeanderingProgrammer/render-markdown.nvim',
+        opts = {
+          file_types = { "markdown", "Avante" },
+        },
+        ft = { "markdown", "Avante" },
+      },
     },
   },
+  { 'vuciv/golf' },
 })
