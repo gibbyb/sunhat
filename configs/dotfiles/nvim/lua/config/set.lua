@@ -4,7 +4,7 @@ vim.opt.relativenumber = true
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
 vim.opt.shiftwidth = 2
-vim.opt.expandtab = true
+--vim.opt.expandtab = true
 
 vim.opt.smartindent = true
 
@@ -26,8 +26,9 @@ vim.opt.isfname:append("@-@")
 
 vim.opt.updatetime = 50
 vim.cmd([[set list]])
-vim.cmd([[set listchars=trail:⋅]])
+--vim.cmd([[set listchars=trail:⋅]])
+vim.cmd([[set listchars=trail:⋅,nbsp:⋅,tab:\ \ ]])
 
-vim.opt.colorcolumn = "120"
+vim.opt.colorcolumn = "100"
 vim.o.background = "dark" -- or "light" for light mode
-vim.cmd([[colorscheme tokyonight-moon]])
+--vim.cmd([[colorscheme tokyonight-moon]])

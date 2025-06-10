@@ -3,9 +3,6 @@
 -- Set leader to space
 vim.g.mapleader = " "
 
--- Easily get back to Normal mode.
-vim.keymap.set("i", "<C-c>", "<Esc>")
-
 -- Move the selected lines up or down one line and reselect
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv")
 vim.keymap.set("v", "K", ":m '<-2<CR>gv=gv")
@@ -51,9 +48,6 @@ vim.keymap.set("n", "Q", "<nop>")
 -- Format the current buffer using the language server protocol (LSP)
 vim.keymap.set("n", "<leader>kf", vim.lsp.buf.format)
 
--- Toggle Supermaven with :SupermavenToggle
-vim.keymap.set("n", "<leader>sm", ":SupermavenToggle<CR>")
-
 -- Perform a search and replace operation using the word under the cursor
 vim.keymap.set("n", "<leader>sr", [[:%s/\<<C-r><C-w>\>/<C-r><C-w>/gI<Left><Left><Left>]])
 
@@ -75,4 +69,3 @@ vim.keymap.set("n", "<leader><leader>", vim.cmd.so)
 
 -- Jump to the previous location in the location list and reposition the cursor
 --vim.keymap.set("n", "<leader>j", "<cmd>lprev<CR>zz")
-

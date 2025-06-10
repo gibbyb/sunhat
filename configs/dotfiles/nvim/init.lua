@@ -1,1 +1,1 @@
-require("gib_nvim")
+require("config")
